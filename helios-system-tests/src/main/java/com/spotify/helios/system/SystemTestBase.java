@@ -539,7 +539,7 @@ public abstract class SystemTestBase {
     }
 
     // TODO (dano): Move this bootstrapping to something reusable
-    final CuratorFramework curator = zk.curator();
+    final CuratorFramework curator = zk.curatorWithSuperAuth();
     curator.newNamespaceAwareEnsurePath(Paths.configHosts()).ensure(curator.getZookeeperClient());
     curator.newNamespaceAwareEnsurePath(Paths.configJobs()).ensure(curator.getZookeeperClient());
     curator.newNamespaceAwareEnsurePath(Paths.configJobRefs()).ensure(curator.getZookeeperClient());
